@@ -26,6 +26,7 @@ Package: libnvpair1
 Section: libs
 Architecture: linux-any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: same
 Description: Solaris name-value library for Linux
  This library provides routines for packing and unpacking nv pairs for
  transporting data across process boundaries, transporting between
@@ -35,6 +36,7 @@ Package: libuutil1
 Section: libs
 Architecture: linux-any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: same
 Description: Solaris userland utility library for Linux
  This library provides a variety of glue functions for ZFS on Linux:
   * libspl: The Solaris Porting Layer userland library, which provides APIs
@@ -62,6 +64,7 @@ Package: libzfs1
 Section: libs
 Architecture: linux-any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: same
 Description: Native ZFS filesystem library for Linux
  The Z file system is a pooled filesystem designed for maximum data
  integrity, supporting data snapshots, multiple copies, and data
@@ -73,6 +76,7 @@ Package: libzpool1
 Section: libs
 Architecture: linux-any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: same
 Description: Native ZFS pool library for Linux
  The Z file system is a pooled filesystem designed for maximum data
  integrity, supporting data snapshots, multiple copies, and data
@@ -88,6 +92,7 @@ Recommends: zfsutils
 Replaces: lzfs, lzfs-dkms
 Provides: lustre-backend-fs, lzfs, lzfs-dkms, zfs-modules
 Conflicts: lzfs, lzfs-dkms
+Multi-Arch: foreign
 Description: Native ZFS filesystem kernel modules for Linux
  The Z file system is a pooled filesystem designed for maximum data
  integrity, supporting data snapshots, multiple copies, and data
@@ -132,6 +137,7 @@ Depends: libnvpair1 (= ${binary:Version}),
          libzpool1 (= ${binary:Version}),
          ${misc:Depends}
 Recommends: zfsutils (= ${binary:Version})
+Multi-Arch: same
 Description: Debugging symbols for ZFS userland libraries and tools
  The Z file system is a pooled filesystem designed for maximum data
  integrity, supporting data snapshots, multiple copies, and data
