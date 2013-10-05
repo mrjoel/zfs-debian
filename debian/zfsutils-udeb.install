@@ -1,2 +1,7 @@
 ../tmp/lib/udev/*_id    /sbin
-../tmp/sbin/*	/sbin
+../tmp/sbin/zfs	/sbin
+../tmp/sbin/zpool	/sbin
+../tmp/sbin/zvol_id	/sbin
+../tmp/sbin/vdev_id	/sbin
+../tmp/sbin/fsck.zfs	/sbin
+../tmp/sbin/mount.zfs	/sbin
