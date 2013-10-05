@@ -18,6 +18,9 @@ ifndef DEB_HOST_ARCH
 DEB_HOST_ARCH = $(shell dpkg-architecture -qDEB_HOST_ARCH)
 endif
 
+DEB_BUILD_GNU_TYPE := $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_HOST_GNU_TYPE  := $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+
 ifndef KVERS
 KVERS=$(shell uname -r)
 endif
@@ -43,8 +46,9 @@ endif
 
 	@# Build the userland, but don't build the kernel modules.
 	./configure \
+	  --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE) \
 	  --prefix='' \
-	  --libexecdir=/usr/libexec \
+	  --libexecdir=/usr/lib \
 	  --libdir=/lib \
 	  --includedir=/usr/include \
 	  --datarootdir=/usr/share \
