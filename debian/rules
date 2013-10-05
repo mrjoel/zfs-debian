@@ -18,6 +18,7 @@ ifndef DEB_HOST_ARCH
 DEB_HOST_ARCH = $(shell dpkg-architecture -qDEB_HOST_ARCH)
 endif
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 DEB_BUILD_GNU_TYPE := $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 DEB_HOST_GNU_TYPE  := $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 
@@ -48,8 +49,8 @@ endif
 	./configure \
 	  --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE) \
 	  --prefix='' \
-	  --libexecdir=/usr/lib \
-	  --libdir=/lib \
+	  --libexecdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
+	  --libdir=/lib/$(DEB_HOST_MULTIARCH) \
 	  --includedir=/usr/include \
 	  --datarootdir=/usr/share \
 	  --with-config=user
@@ -93,9 +94,9 @@ override_dh_auto_install:
 	echo 'cp "$$@"'  >>'$(CURDIR)/debian/tmp/usr/src/$(NAME)-$(VERSION)/cp'
 	chmod 755 '$(CURDIR)/debian/tmp/usr/src/$(NAME)-$(VERSION)/cp'
 
-	mkdir -p $(CURDIR)/debian/tmp/usr/lib
-	for i in `ls $(CURDIR)/debian/tmp/lib/*.so`; do \
-		ln -s /lib/`readlink $${i}` $(CURDIR)/debian/tmp/usr/lib/`basename $${i}`; \
+	mkdir -p $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
+	for i in `ls $(CURDIR)/debian/tmp/lib/$(DEB_HOST_MULTIARCH)/*.so`; do \
+		ln -s /lib/$(DEB_HOST_MULTIARCH)/`readlink $${i}` $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/`basename $${i}`; \
 		rm $${i}; \
 	done
 

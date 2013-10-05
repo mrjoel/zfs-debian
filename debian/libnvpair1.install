@@ -1,1 +1,2 @@
-lib/libnvpair.so.*
+#! /usr/bin/dh-exec
+lib/${DEB_HOST_MULTIARCH}/libnvpair.so.*

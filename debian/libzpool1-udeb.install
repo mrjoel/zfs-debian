@@ -1,1 +1,2 @@
-lib/libzpool/.libs/libzpool.so.*[0-9]	lib
+#! /usr/bin/dh-exec
+lib/${DEB_HOST_MULTIARCH}/libzpool.so.*[0-9]	lib
