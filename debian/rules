@@ -6,7 +6,7 @@ VERSION := $(shell dpkg-parsechangelog \
   | awk '$$1 == "Version:" { print $$2; }' | cut -d- -f1)
 
 DKMSFILES := module include config zfs.release.in autogen.sh META AUTHORS \
-		DISCLAIMER COPYRIGHT OPENSOLARIS.LICENSE README.markdown
+		DISCLAIMER COPYRIGHT README.markdown
 
 export SHLIB_MAJOR = 1
 
