@@ -25,6 +25,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-zfsonlinux/spl.git
 Package: libnvpair1
 Section: libs
 Architecture: linux-any
+Pre-Depends: multiarch-support
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Description: Solaris name-value library for Linux
@@ -35,6 +36,7 @@ Description: Solaris name-value library for Linux
 Package: libuutil1
 Section: libs
 Architecture: linux-any
+Pre-Depends: multiarch-support
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Description: Solaris userland utility library for Linux
@@ -63,6 +65,7 @@ Description: Native ZFS filesystem development files for Linux
 Package: libzfs1
 Section: libs
 Architecture: linux-any
+Pre-Depends: multiarch-support
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Description: Native ZFS filesystem library for Linux
@@ -75,6 +78,7 @@ Description: Native ZFS filesystem library for Linux
 Package: libzpool1
 Section: libs
 Architecture: linux-any
+Pre-Depends: multiarch-support
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Description: Native ZFS pool library for Linux
@@ -131,6 +135,7 @@ Package: zfs-dbg
 Section: debug
 Priority: extra
 Architecture: linux-any
+Pre-Depends: multiarch-support
 Depends: libnvpair1 (= ${binary:Version}),
          libuutil1 (= ${binary:Version}),
          libzfs1 (= ${binary:Version}),
